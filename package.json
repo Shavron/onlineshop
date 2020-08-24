@@ -1,15 +1,7 @@
 {
-  "name": "onlineshop",
+  "name": "onlineshop-backend",
   "version": "1.0.0",
-  "description": "Demo : https://onlineshop.herokuapp.com/",
-  "main": "server.js",
-  "license": "MIT",
-  "author": "Abhilash Shukla",
-  "private": false,
-  "engines": {
-    "node": "  13.2.0",
-    "npm": "6.13.4"
-  },
+  "main": "dist/server.js",
   "dependencies": {
     "aws-sdk": "^2.702.0",
     "body-parser": "^1.19.0",
@@ -34,8 +26,13 @@
     "nodemon": "^2.0.2"
   },
   "scripts": {
-    "start": "backend/server.js",
-    "build": "rm -rf dist && babel backend -d dist",
-    "heroku-postbuild": "npm run build && cd frontend && npm install && npm run build"
+    "start": "nodemon --watch backend --exec babel-node backend/server.js",
+    "build": "rm -rf dist && babel backend -d dist"
+  },
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": "12.4.0",
+    "npm": "6.9.0"
   }
 }
