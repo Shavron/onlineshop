@@ -120,9 +120,10 @@ export default function NavBar({ onClickNavbar, status, onClickOverLay }) {
 
   const productList = useSelector(state => state.productList);
 
-  const categoryList =
-    [...new Set(productList.products.map(c => c.category))] || [];
+  // const categoryList =
+  //   [...new Set(productList.products.map(c => c.category))] || [];
 
+  const categoryList = ["Mobile", "Pendrive"];
   const { cartItems } = cart;
 
   let drawer = {};
