@@ -2,7 +2,7 @@
   "name": "onlineshop",
   "version": "1.0.0",
   "description": "Demo : https://onlineshop.herokuapp.com/",
-  "main": "index.js",
+  "main": "server.js",
   "license": "MIT",
   "author": "Abhilash Shukla",
   "private": false,
