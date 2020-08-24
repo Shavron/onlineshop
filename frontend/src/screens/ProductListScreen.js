@@ -52,7 +52,7 @@ function HomeScreen(props) {
 
   const useStyles = makeStyles(theme => ({
     root: {
-      maxWidth: 291,
+      maxWidth: 288,
       float: "left",
       width: "100%",
       margin: "10px 10px 10px 10px"

@@ -64,10 +64,10 @@ router.post("/register", async (req, res) => {
 
 router.get("/createadmin", async (req, res) => {
   try {
-    // User.findOneAndDelete({ email: "admin@gmail.com" }, function(err) {
-    //   if (err) console.log(err);
-    //   console.log("Successful deletion");
-    // });
+    User.findOneAndDelete({ email: "admin@gmail.com" }, function(err) {
+      if (err) console.log(err);
+      console.log("Successful deletion");
+    });
     const user = new User({
       name: "Shavron",
       email: "admin@gmail.com",

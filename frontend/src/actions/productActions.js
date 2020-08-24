@@ -66,7 +66,6 @@ const saveProduct = product => async (dispatch, getState) => {
       dispatch({ type: PRODUCT_SAVE_SUCCESS, payload: data });
     }
   } catch (error) {
-    console.log("productAction", error);
     dispatch({ type: PRODUCT_SAVE_FAIL, payload: error.message });
   }
 };

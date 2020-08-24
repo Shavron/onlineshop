@@ -107,7 +107,7 @@ router.post("/", isAuth, isAdmin, async (req, res) => {
     }
     return res.status(500).send({ message: " Error in Creating Product." });
   } catch (error) {
-    return res.status(401).send({ message: error.message });
+    //return res.status(401).send({ message: error.message });
   }
 });
 

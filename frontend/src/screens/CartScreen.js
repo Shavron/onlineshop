@@ -37,7 +37,7 @@ function CartScreen(props) {
             <div>Cart is empty</div>
           ) : (
             cartItems.map(item => (
-              <li>
+              <li key={item.name}>
                 <div className="cart-image">
                   <img src={item.image} alt="product" />
                 </div>
@@ -77,13 +77,11 @@ function CartScreen(props) {
       </div>
       <div className="cart-action">
         <p style={{ padding: "10px" }}>
-          <h3>
-            Total Qty: {cartItems.reduce((a, c) => a + c.qty, 0)}
-            {/* {cartItems.reduce((a, c) => a + c.price * c.qty, 0)} */}
-          </h3>
+          Total Qty: {cartItems.reduce((a, c) => a + c.qty, 0)}
+          {/* {cartItems.reduce((a, c) => a + c.price * c.qty, 0)} */}
         </p>
         <p style={{ padding: "10px" }}>
-          <h3> Rs. {cartItems.reduce((a, c) => a + c.price * c.qty, 0)}</h3>
+          Rs. {cartItems.reduce((a, c) => a + c.price * c.qty, 0)}
         </p>
         <button
           onClick={checkoutHandler}

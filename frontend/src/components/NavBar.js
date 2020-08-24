@@ -120,7 +120,8 @@ export default function NavBar({ onClickNavbar, status, onClickOverLay }) {
 
   const productList = useSelector(state => state.productList);
 
-  const categoryList = [...new Set(productList.products.map(c => c.category))];
+  const categoryList =
+    [...new Set(productList.products.map(c => c.category))] || [];
 
   const { cartItems } = cart;
 
@@ -172,14 +173,14 @@ export default function NavBar({ onClickNavbar, status, onClickOverLay }) {
       <Divider />
 
       {userInfo && userInfo.isAdmin && (
-        <>
+        <div>
           <MenuItem onClick={handleMenuClose}>
             <Link to="/admin/orders">Order Details</Link>
           </MenuItem>
           <MenuItem onClick={handleMenuClose}>
             <Link to="/admin/inventory">Inventory Details</Link>
           </MenuItem>
-        </>
+        </div>
       )}
 
       <MenuItem onClick={handleMenuClose}>
@@ -208,18 +209,18 @@ export default function NavBar({ onClickNavbar, status, onClickOverLay }) {
       )}
 
       {userInfo && userInfo.isAdmin && (
-        <>
+        <div>
           <MenuItem onClick={handleMenuClose}>
             <Link to="/admin/orders">Order Details</Link>
           </MenuItem>
           <MenuItem onClick={handleMenuClose}>
             <Link to="/admin/inventory">Inventory Details</Link>
           </MenuItem>
-        </>
+        </div>
       )}
 
       {userInfo && (
-        <>
+        <div>
           <MenuItem onClick={handleMenuClose}>
             <Link to="/profile">Profile</Link>
           </MenuItem>
@@ -229,7 +230,7 @@ export default function NavBar({ onClickNavbar, status, onClickOverLay }) {
               Logout
             </Link>
           </MenuItem>
-        </>
+        </div>
       )}
     </Menu>
   );
@@ -257,7 +258,7 @@ export default function NavBar({ onClickNavbar, status, onClickOverLay }) {
       <List>
         {categoryList.length > 0 &&
           categoryList.map(c => (
-            <ListItem>
+            <ListItem key={c}>
               <ListItemIcon>
                 <InboxIcon />
               </ListItemIcon>
@@ -312,7 +313,7 @@ export default function NavBar({ onClickNavbar, status, onClickOverLay }) {
             <Link to="/" style={{ color: "#fff", fontSize: "25px" }}>
               Online Shop
             </Link>
-            <div className={classes.search}>
+            <div className={classes.search + " custom_input"}>
               <div className={classes.searchIcon}>
                 <SearchIcon />
               </div>
@@ -347,9 +348,8 @@ export default function NavBar({ onClickNavbar, status, onClickOverLay }) {
                   color="inherit"
                 >
                   <AccountCircle fontSize="large" />
-                  <Button color="inherit" style={{ fontSize: "14px" }}>
-                    {userInfo.name}
-                  </Button>
+
+                  {userInfo.name}
                 </IconButton>
               ) : (
                 <IconButton
@@ -363,7 +363,7 @@ export default function NavBar({ onClickNavbar, status, onClickOverLay }) {
                   <Button
                     color="inherit"
                     style={{ fontSize: "14px" }}
-                    onClick={history.push("/signin")}
+                    onClick={() => history.push("/signin")}
                   >
                     SignIn
                   </Button>

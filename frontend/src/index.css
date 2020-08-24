@@ -20,6 +20,15 @@ li > a {
   color: #000;
 }
 
+@media screen and (max-width: 600px) {
+  .custom_input {
+    display: none !important;
+  }
+  .makeStyles-root-24 {
+    margin: 10px 10px 10px 20px !important;
+  }
+}
+
 .input_class {
   margin-right: 15px;
   width: 26px;
