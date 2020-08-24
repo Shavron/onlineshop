@@ -1,8 +1,7 @@
 {
   "name": "frontend",
-  "proxy": "http://127.0.0.1:5000",
-  "version": "0.1.0",
-  "private": true,
+  "proxy": "http://localhost:5000",
+  "private": false,
   "engines": {
     "node": "  13.2.0",
     "npm": "6.13.4"
