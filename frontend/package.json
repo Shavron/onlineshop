@@ -1,6 +1,5 @@
 {
   "name": "frontend",
-  "proxy": "http://localhost:5000",
   "private": false,
   "engines": {
     "node": "  13.2.0",
